@@ -70,3 +70,6 @@ Stack trace:
 #19 /home/fernando/Documentos/Laravel/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #20 /home/fernando/Documentos/Laravel/blog/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #21 {main}  
+[2015-12-06 22:38:32] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in /home/fernando/Documentos/Laravel/blog/app/Http/routes.php:22
+Stack trace:
+#0 {main}  

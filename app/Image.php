@@ -10,4 +10,9 @@ class Image extends Model
 
     //Campos permitidos 
     protected $fillable = ['name', 'article_id'];
+
+    public function article()
+    {
+    	return $this->belongsTo('App\Article');
+    }
 }
