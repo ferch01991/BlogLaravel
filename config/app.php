@@ -145,6 +145,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        *   Providers personales
+        */
+        Collective\Html\HtmlServiceProvider::class,
+        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+
     ],
 
     /*
@@ -193,6 +199,12 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        /*
+        *   Aliases personales: son los que van a estar en toda la aplicacion
+        */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
