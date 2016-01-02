@@ -1,0 +1,26 @@
+<?php $__env->startSection('title', 'Login'); ?>
+
+<?php $__env->startSection('content'); ?>
+  <?php echo Form::open(['route' => 'admin.auth.login', 'method' => 'POST']); ?>
+
+    <div class="form-group">
+      <?php echo Form::label('email', 'Correo Electronico'); ?>
+
+      <?php echo Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'example@mail.com']); ?>
+
+    </div>
+    <div class="form-group">
+      <?php echo Form::label('password', 'Contraseña'); ?>
+
+      <?php echo Form::password('password',  ['class' => 'form-control', 'placeholder' => '*******']); ?>
+
+    </div>
+
+    <div class="for-group">
+      <?php echo Form::submit('Acceder', ['class' => 'btn btn-primary']); ?>
+
+    </div>  
+  <?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.template.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

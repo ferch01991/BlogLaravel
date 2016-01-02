@@ -3,9 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrok\EloquentSluggable\SluggableInterface;
+use Cviebrok\EloquentSluggable\SluggableTrait;
 
 class Article extends Model
 {
+
+    //use SluggableTrait;
+
+    protected $sluggable = [
+        'build_from' => 'title',
+        'save_to'    => 'slug',
+    ];
+
     protected $table = "articles";
 
     //Campos permitidos cuando trabajemos con objetos JSON

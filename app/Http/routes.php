@@ -36,11 +36,33 @@ Route::get('article/{nombre?}', function($nombre = "El parce"){
 
 //Vamos a agregar un grupo de rutas con el cual le asignamos un nombre como prefijo
 
-Route::group(['prefix' => 'articles'], function(){
-	Route::get('view/{id}', [
-			//Esto es para indicar que controlador va a usar colocamos el @ para indicar que metedo o funcion vamos a utilizar
-			'uses' => 'TestController@view',
-			// Le agregamos un nombre a la rutas con 'as'
-			'as' => 'aticlesView'
-		]);
+Route::group(['prefix' => 'admin'], function(){
+	//funcion resouse: estilo de api Rest full, toma los metodos de un controlador y los define como un estilo de rutas
+	Route::resource('users','UsersController');
+	
+	Route::get('users/{id}/destroy', [
+		'uses' => 'UsersController@destroy',
+		'as' => 'admin.users.destroy'
+	]);
+	Route::resource('categories', 'CategoriesController');
+
+	Route::get('categories/{id}/destroy', [
+		'uses' => 'CategoriesController@destroy',
+		'as' => 'admin.categories.destroy'
+	]);
 });
+
+Route::get('admin/auth/login', [
+	'uses'	=>  'Auth\AuthController@getLogin',
+	'as'	=>  'admin.auth.login'
+	]);
+
+Route::post('admin/auth/login', [
+	'uses'	=>  'Auth\AuthController@postLogin',
+	'as'	=>  'admin.auth.login'
+	]);
+
+Route::get('admin/auth/logout', [
+	'uses'	=>  'Auth\AuthController@getLogout',
+	'as'	=>  'admin.auth.logout'
+	]);

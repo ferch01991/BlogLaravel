@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo $__env->yieldContent('title','Default'); ?> | Panel de administracion</title>
+	<link rel="stylesheet" href="<?php echo e(asset('plugins/bootstrap/css/bootstrap.min.css')); ?>">
+	<link rel="stylesheet" href="<?php echo e(asset('plugins/bootstrap/css/bootstrap.css')); ?>">
+	<style type="text/css"></style>
+</head>
+<body class="admin-body">
+<br>
+
+<div class="container">
+	<?php echo $__env->make('admin.template.static.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="panel panel-primary">
+
+	<div class="panel-heading"><?php echo $__env->yieldContent('title', 'Default'); ?></div>
+		<div class="panel-body">
+			<?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('admin.template.static.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->yieldContent('content'); ?>
+		</div>
+	</div>
+	<?php echo $__env->make('admin.template.static.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+</div>
+
+
+<script src="<?php echo e(asset('plugins/jquery/js/jquery-2.1.4.js')); ?>"></script>
+<script src="<?php echo e(asset('plugins/bootstrap/js/bootstrap.js')); ?>"></script>
+<script src="<?php echo e(asset('plugins/bootstrap/js/bootstrap.min.js')); ?>"></script>
+</body>
+</html>
